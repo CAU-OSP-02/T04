@@ -1,7 +1,5 @@
 import pygame
-import sys
 
-# 초기화
 pygame.init()
 
 # 화면 크기
@@ -14,17 +12,34 @@ WHITE = (255, 255, 255)
 
 # 창 크기
 screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption('A+를 찾아서')
 
-pygame.display.set_caption("A+를 찾아서")
+background2 = pygame.image.load('professor_office2.jpg')
+professor2 = pygame.image.load('professor2.png')
+professor2 = pygame.transform.scale(professor2, (100, 100))
 
-background = pygame.image.load('ProfessorOffice2.png')
-prfs1 = pygame.image.load('professor1.png')
-prfs1 = pygame.transform.scale(prfs1, (100, 100))
+def office2():
+    screen.blit(background2, (0, 0))
+    screen.blit(professor2, (400, 300))
 
-def background1():
-    background = pygame.image.load('ProfessorOffice2.png')
-    screen.blit(background, (0, 0))
-    screen.blit(prfs1, (420, 240))
+font1 = pygame.font.Font('DXMSubtitlesM-KSCpc-EUC-H.ttf', 25)
+
+text1 = font1.render('학생, 우리가 배웠던 git 명령어가 궁금하다고요?', True, BLACK)
+text2 = font1.render('먼저 git clone,', True, BLACK)
+text3 = font1.render('git pull,', True, BLACK)
+text4 = font1.render('git add .,', True, BLACK)
+text5 = font1.render('git commit,', True, BLACK)
+text6 = font1.render('git push,', True, BLACK)
+text7 = font1.render('git checkout,', True, BLACK)
+text8 = font1.render('git log,', True, BLACK)
+text9 = font1.render('git gui.', True, BLACK)
+text10 = font1.render('이외에도 다양한 명렁어가 있습니다.', True, BLACK)
+
+total_time = 10
+start_ticks = pygame.time.get_ticks()
+
+font2 = pygame.font.Font('Hancom Gothic Regular.ttf', 25)
+question = font2.render('언급되지 않은 git 명령어는?', True, BLACK, (200, 250, 200))
 
 class Button:
     def __init__(self, text, width, height, pos, elevation):
@@ -69,90 +84,65 @@ class Button:
                 self.dynamic_elecation = self.elevation
                 if self.pressed == True:
                     print('click')
-                    background1()
+                    office2()
                     self.pressed = False
         else:
             self.dynamic_elecation = self.elevation
             self.top_color = '#475F77'
 
-font1 = pygame.font.Font('DXMSubtitlesM-KSCpc-EUC-H.ttf', 25)
+button1 = Button('git commit', 200, 40, (150, 400), 5)
+button2 = Button('git log', 200, 40, (400, 400), 5)
+button3 = Button('git branch', 200, 40, (150, 500), 5)
+button4 = Button('git checkout', 200, 40, (400, 500), 5)
 
-text1 = font1.render('학생, 반가워요.', True, BLACK)
-text2 = font1.render('이제부터 내가 말하는 거 기억할 수 있죠?', True, BLACK)
-text3 = font1.render('과제는 총 5개입니다. 개인과제 4개, 조별과제 하나.', True, BLACK)
-text4 = font1.render('첫 번째 과제는 11월 3일까지.', True, BLACK)
-text5 = font1.render('두 번째 과제는 11월 22일까지.', True, BLACK)
-text6 = font1.render('세 번째 과제는 12월 6일까지.', True, BLACK)
-text7 = font1.render('네 번째 과제는 12월 10일까지.', True, BLACK)
-text8 = font1.render('마지막으로 조별과제는 12월 21일까지입니다.', True, BLACK)
-text9 = font1.render('아, 그리고 개별 면담 요청하셨죠?', True, BLACK)
-text10 = font1.render('12월 13일 오후 1시 정각에 여기로 오시면 됩니다.', True, BLACK)
-
-total_time = 10
-start_ticks = pygame.time.get_ticks()
-
-# 사용자가 닫기 버튼을 클릭할 때까지 반복
 done = False
 clock = pygame.time.Clock()
 
 while not done:
-    # 초당 프레임
     clock.tick(10)
 
-    # 메인 이벤트 반복
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
 
-    screen.blit(background, (0, 0))
-    screen.blit(prfs1, (420, 240))
-
+    office2()
     elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000
     pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
     screen.blit(text1, (30, 30))
     if elapsed_time > 3:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text2, (30, 30))
-    if elapsed_time > 6:
+    if elapsed_time > 5:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text3, (30, 30))
-    if elapsed_time > 9:
+    if elapsed_time > 7:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text4, (30, 30))
-    if elapsed_time > 12:
+    if elapsed_time > 9:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text5, (30, 30))
-    if elapsed_time > 15:
+    if elapsed_time > 11:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text6, (30, 30))
-    if elapsed_time > 18:
+    if elapsed_time > 13:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text7, (30, 30))
-    if elapsed_time > 21:
+    if elapsed_time > 15:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text8, (30, 30))
-    if elapsed_time > 24:
+    if elapsed_time > 17:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text9, (30, 30))
-    if elapsed_time > 27:
+    if elapsed_time > 19:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(text10, (30, 30))
-    if elapsed_time > 30:
-        screen.blit(background, (0, 0))
-        screen.blit(prfs1, (420, 240))
+    if elapsed_time > 21:
+        office2()
 
-        background1()
-        font2 = pygame.font.Font('Hancom Gothic Regular.ttf', 25)
-        question = font2.render('두 번째 과제 제출일은?', True, BLACK, (200, 250, 200))
         screen.blit(question, (100, 300))
-        button1 = Button('11월 20일', 200, 40, (150, 400), 5)
-        button2 = Button('11월 21일', 200, 40, (400, 400), 5)
-        button3 = Button('11월 22일', 200, 40, (150, 500), 5)
-        button4 = Button('11월 23일', 200, 40, (400, 500), 5)
         button1.draw()
         button2.draw()
         button3.draw()
         button4.draw()
 
-    # 업데이트
     pygame.display.flip()
