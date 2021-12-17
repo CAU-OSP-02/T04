@@ -76,7 +76,7 @@ class Button:
                 self.pressed = True
             else:
                 self.dynamic_elevation = self.elevation
-            if self.pressed == True:
+            if self.pressed is True:
                 print("click")
                 self.result()
                 self.pressed = False
@@ -86,7 +86,7 @@ class Button:
 
     def result(self):
         msg_font = pygame.font.Font('DXMSubtitlesM-KSCpc-EUC-H.ttf', 50)
-        if button == answer:
+        if self == answer:
             msg = msg_font.render('정답!', True, WHITE)
         else:
             msg = msg_font.render('땡!', True, WHITE)
@@ -108,9 +108,9 @@ text8 = font.render('마지막으로 조별과제는 12월 21일까지입니다.
 text9 = font.render('아, 그리고 개별 면담 요청하셨죠?', True, BLACK)
 text10 = font.render('12월 13일 오후 1시 정각에 여기로 오시면 됩니다.', True, BLACK)
 
-text11 = font.render('안녕하세요~ 무슨 일인가요?', True, BLACK)
-text12 = font.render('깃허브 과제 커밋 순서를 모르겠다구요?', True, BLACK)
-text13 = font.render('한 번 정리해줄테니 잘 듣고 제출하세요.', True, BLACK)
+text11 = font.render('안녕하세요~ 질문이 있으시다구요?', True, BLACK)
+text12 = font.render('깃허브 과제의 커밋 순서 말씀이신가요?', True, BLACK)
+text13 = font.render('한 번 정리해드릴테니 잘 듣고 제출하세요.', True, BLACK)
 text14 = font.render('순서 정렬 파일은 총 2개입니다.', True, BLACK)
 text15 = font.render('첫번째 파일의 커밋 순서는 4, 3, 2, 1 이고, cherry-pick을 사용하세요', True, BLACK)
 text16 = font.render('두번째 파일의 커밋 순서는 5, 7, 6, 8 이고, rebase를 사용하세요', True, BLACK)
@@ -119,8 +119,10 @@ text18 = font.render('첫 번째 발표는 홀수팀 전체 -> 짝수팀 전체,
 text19 = font.render('두 번째 발표는 짝수팀 전체 -> 홀수팀 전체로 진행할 예정입니다.', True, BLACK)
 text20 = font.render('마지막까지 힘내고 좋은 결과 있길 바래요!', True, BLACK)
 
-texts_prof = [text1, text2, text3, text4, text5, text6, text7, text8, text9, text10,
-               text11, text12, text13, text14, text15, text16, text17, text18, text19, text20]
+texts_prof = [text1, text2, text3, text4, text5,
+              text6, text7, text8, text9, text10,
+              text11, text12, text13, text14, text15,
+              text16, text17, text18, text19, text20]
 
 
 total_time = 10
@@ -129,15 +131,18 @@ start_ticks = pygame.time.get_ticks()
 # 사용자가 닫기 버튼을 클릭할 때까지 반복
 done = False
 clock = pygame.time.Clock()
-ans = 0
+ans = []
 i = 0
 
 while not done:
     # 초당 프레임
     clock.tick(10)
 
-    if ans == 1:
+    if 1 in ans:
         i = 1
+        if len(ans) > 1:
+            pygame.time.delay(5)
+            pygame.quit()
 
     # 메인 이벤트 반복
     for event in pygame.event.get():
@@ -153,7 +158,6 @@ while not done:
     pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
 
     screen.blit(texts_prof[10*i], (30, 30))
-
     if elapsed_time > 3:
         pygame.draw.rect(screen, WHITE, [10, 10, 780, 150], border_radius=15)
         screen.blit(texts_prof[10*i+1], (30, 30))
@@ -208,12 +212,16 @@ while not done:
         buttons = [button1, button2, button3, button4]
         for button in buttons:
             button.draw()
-            button.check_click()
 
-        if pygame.MOUSEBUTTONDOWN:
-            if answer:
-                ans = 1
-                start_ticks = pygame.time.get_ticks()
+        pygame.time.delay(10)
+
+        for event in pygame.event.get():
+            if pygame.MOUSEBUTTONDOWN:
+                for button in buttons:
+                    button.check_click()
+                if answer:
+                    ans.append(1)
+                    start_ticks = pygame.time.get_ticks()
 
     # 업데이트
     pygame.display.flip()
