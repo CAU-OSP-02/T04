@@ -1,5 +1,6 @@
 import pygame
 
+pygame.display.set_caption('Adventure for A+')
 class Button_start:
 	def __init__(self, text, width, height, pos, elevation):
 		#Core attributes

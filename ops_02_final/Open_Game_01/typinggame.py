@@ -3,7 +3,7 @@ import pygame
 from drawing_text import draw_text
 
 pygame.init()
-
+pygame.display.set_caption('Adventure for A+')
 size = [800, 600]          # 1. 화면 크기를 리스트 설정(size[0]은 가로, size[1]은 세로)
 screen = pygame.display.set_mode(size)
 game_font_s = pygame.font.Font("Marvel-Regular.ttf", 40)

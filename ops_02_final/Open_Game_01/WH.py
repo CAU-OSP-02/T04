@@ -2,7 +2,7 @@ import pygame
 from drawing_text import draw_text
 
 pygame.init()    # pygame 초기화
-
+pygame.display.set_caption('Adventure for A+')
 # 게임에 사용되는 전역 변수 선언
 size = [800, 600]          # 1. 화면 크기를 리스트 설정(size[0]은 가로, size[1]은 세로)
 screen = pygame.display.set_mode(size)   # 2. 화면 설정

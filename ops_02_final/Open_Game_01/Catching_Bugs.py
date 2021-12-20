@@ -4,7 +4,7 @@ import time
 from drawing_text import draw_text
 
 pygame.init()
-
+pygame.display.set_caption('Adventure for A+')
 #변수 선언
 black=(0,0,0)
 red=(255,0,0)

@@ -5,6 +5,7 @@ from Pause import pause_library
 
 pygame.init()    # pygame 초기화
 
+pygame.display.set_caption('Adventure for A+')
 # 게임에 사용되는 전역 변수 선언
 size = [800, 600]          # 1. 화면 크기를 리스트 설정(size[0]은 가로, size[1]은 세로)
 screen = pygame.display.set_mode(size)   # 2. 화면 설정
@@ -95,7 +96,7 @@ def draw_text(text, font, surface, x, y, main_color):
 
 def runMap():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = width // 2 - person.width // 2     # 사람 위치 지정
@@ -165,7 +166,7 @@ def runMap():
 
 def runMap2(a):
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     if a == 1:
@@ -242,7 +243,7 @@ def runMap2(a):
 
 def runMap3():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x1     # 사람 위치 지정
@@ -314,7 +315,7 @@ def runMap3():
 
 def runMap4(a):
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     if a == 1:
@@ -391,7 +392,7 @@ def runMap4(a):
 
 def runMap5():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x4     # 사람 위치 지정
@@ -463,7 +464,7 @@ def runMap5():
 
 def runMap6(a):
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     if a == 1:
@@ -543,7 +544,7 @@ def runMap6(a):
 
 def runMap7():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x7     # 사람 위치 지정
@@ -615,7 +616,7 @@ def runMap7():
 
 def runMap8():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x9     # 사람 위치 지정
@@ -687,7 +688,7 @@ def runMap8():
 
 def runMap3_done():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x1     # 사람 위치 지정
@@ -753,7 +754,7 @@ def runMap3_done():
 
 def runMap5_done():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x4     # 사람 위치 지정
@@ -820,7 +821,7 @@ def runMap5_done():
 
 def runMap7_done():
     # 사람 설정 과정
-    person_image = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/person.png')
+    person_image = pygame.image.load('images/map_decorated/person.png')
     person_image = pygame.transform.scale(person_image, (50, 100))
     person = pygame.Rect(person_image.get_rect())        # 사람 충돌 판정용 사각형
     person.left = x7     # 사람 위치 지정

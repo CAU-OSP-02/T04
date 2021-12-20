@@ -3,7 +3,7 @@ from drawing_text import draw_text
 
 # 초기화
 pygame.init()
-
+pygame.display.set_caption('Adventure for A+')
 # 화면 크기
 width = 800
 height = 600
