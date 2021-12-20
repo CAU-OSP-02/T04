@@ -1,4 +1,7 @@
 import pygame
+from Pause import pause_dormavoid
+from Pause import pause_professor
+from Pause import pause_library
 
 pygame.init()    # pygame 초기화
 
@@ -14,26 +17,26 @@ done = False               # 3. 게임 루프에 이용되는 변수
 clock = pygame.time.Clock()    # 4. fps (프레임) 설정에 이용되는 변수
 
 # 5. 이미지 불러오기
-map_straight = pygame.image.load('straight.png') # 직진
-map_turnright1 = pygame.image.load('right1.png') # 우회전1
-map_turnright2 = pygame.image.load('right2.png') # 우회전2
-map_dorm = pygame.image.load('rightDstn.png') # 기숙사
-map_professor = pygame.image.load('rightDstnProfessor.png') # 교수연구관
-map_crossroad = pygame.image.load('crossroad.png') # 갈림길
-map_library = pygame.image.load('rightDstnLibrary.png') # 도서관
-map_WH = pygame.image.load('rightDstnWH.png') # 원형관
-building_dorm = pygame.image.load('dormitory.png')
+map_straight = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/straight.png') # 직진
+map_turnright1 = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/right1.png') # 우회전1
+map_turnright2 = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/right2.png') # 우회전2
+map_dorm = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/rightDstn.png') # 기숙사
+map_professor = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/rightDstnProfessor.png') # 교수연구관
+map_crossroad = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/crossroad.png') # 갈림길
+map_library = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/rightDstnLibrary.png') # 도서관
+map_WH = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/rightDstnWH.png') # 원형관
+building_dorm = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/dormitory.png')
 building_dorm = pygame.transform.scale(building_dorm, (256, 256))
-building_professor = pygame.image.load('professor.png')
+building_professor = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/professor.png')
 building_professor = pygame.transform.scale(building_professor, (256, 256))
-building_library = pygame.image.load('library.png')
+building_library = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/library.png')
 building_library = pygame.transform.scale(building_library, (256, 256))
-building_WH = pygame.image.load('WH.png')
+building_WH = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/WH.png')
 building_WH = pygame.transform.scale(building_WH, (300, 178))
-maps = pygame.image.load('map.jpg')
+maps = pygame.image.load('C:/Users/EDWIL/PycharmProjects/pythonProject1/Open_Game_01/images/map_decorated/map.jpg')
 
-game_font_s = pygame.font.Font(None, 40)         # 6. 작은 폰트, 큰 폰트
-game_font_b = pygame.font.Font(None, 100)
+game_font_s = pygame.font.Font("Marvel-Regular.ttf", 40)         # 6. 작은 폰트, 큰 폰트
+game_font_b = pygame.font.Font("Marvel-Regular.ttf", 100)
 
 
 # 일시정지 기능 구현 함수
